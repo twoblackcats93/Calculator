@@ -14,11 +14,12 @@ def oops_check():
     try:
         operator = tokens[0]
         return operator
-        
+    # split the errors    
     except (ValueError, NameError, RuntimeError, IndexError):
         print "You've entered an invalid thing. Try again, c'mon man!"
         return oops_check()
-    return user_input(operator, tokens)
+    else:    
+        user_input(operator, tokens)
 
 
 # add print statement of user equation options like + - pow and in prefix style
