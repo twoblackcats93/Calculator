@@ -7,14 +7,28 @@ calculator program yourself in this file.
 
 from our_arithmetic import *
 
+
+def oops_check():
+    user_equation = raw_input("Enter the operation followed by the numbers you'd like to perform: ")
+    tokens = user_equation.split(" ")
+    try:
+        operator = tokens[0]
+        return operator
+        return tokens
+        print user_equation
+        print operator
+        print tokens[1]
+        print tokens[2]
+    except (ValueError, NameError, RuntimeError, IndexError):
+        print "You've entered an invalid thing. Try again, c'mon man!"
+        return oops_check()
+    return user_input(operator, tokens)
+
+
 # add print statement of user equation options like + - pow and in prefix style
-def user_input():
+def user_input(operator, tokens):
 
     while True:
-        # get user input and tokenize it
-        user_equation = raw_input("Enter the operation followed by the numbers you'd like to perform: ")
-        tokens = user_equation.split(" ")
-        operator = tokens[0]
         
         # enables user to quit
         if operator == "q":
@@ -48,6 +62,7 @@ def user_input():
         else:
             print "You've entered an invalid operation."
 
-user_input()
+oops_check()
+
 
 
